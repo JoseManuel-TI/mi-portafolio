@@ -10,6 +10,8 @@ return [
     'SITE_NAME' => 'Jose Manuel Portafolio',
     'MAIL_FROM' => 'no-reply@localhost',
     'MAIL_REPLY_TO' => 'no-reply@localhost',
+    'CONTACT_TO' => 'jcmanueldj@gmail.com',
+    'CONTACT_SUBJECT_PREFIX' => '[Portfolio]',
     'AUTO_REPLY_SUBJECT' => 'Recibimos tu mensaje',
     'SMTP_ENABLED' => '0',
     'SMTP_HOST' => '',

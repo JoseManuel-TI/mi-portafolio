@@ -15,11 +15,16 @@
             <div id="branding">
                 <h1><span class="highlight">Jose Manuel</span> Portafolio</h1>
             </div>
-            <nav class="navigation"> 
-                <ul>
+            <nav class="navigation">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Abrir menú" aria-controls="site-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="site-menu">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="sobremi.html">Sobre Mí</a></li>
-                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li class="current"><a href="proyectos.html">Proyectos</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
@@ -35,35 +40,62 @@
                 <div class="project-card-row">
                 <div class="project-content">
                     <span class="tag tag-ia">ACTIVO INMOBILIARIO</span>
-                    <h3>Real Estate Data Hunter</h3>
-                    <p>Sistema de prospección con IA. <br>
-                    <strong>Muestra Gratuita:</strong> He dejado 4 oportunidades reales de hoy para que valides la precisión del sistema.</p>
+                    <h3>Bot Inmobiliario Pro</h3>
+                    <p>Sistema de prospección y filtrado de oportunidades inmobiliarias para reducir tiempos de búsqueda y análisis.</p>
                     <div class="tech-tags">
-                        <span>Python</span> <span>Scraping</span> <span>Excel Automation</span>
+                        <span>Python</span> <span>Flask</span> <span>Web Scraping</span> <span>SQL</span>
                     </div>
-                    <a href="https://bot-inmobiliario-pro.onrender.com/" class="btn btn-secondary">Muestra Gratis</a>
-                    <a href="https://github.com/josemanuelweb/bot-inmobiliario-pro" class="btn btn-primary">Ver Repositorio GitHub</a>
+                    <a href="https://bot-inmobiliario-pro.onrender.com/" class="btn btn-primary" target="_blank" rel="noopener">Ver sitio web</a>
                 </div>
                 <div class="project-image-container">
                     <img src="img/AppInmobiliaria.png" alt="App Inmobiliaria">
                 </div>
             </div>
 
-                <div class="project-card-row">
-                    <div class="project-content">
-                        <span class="tag tag-web">FRONTEND ARCHITECTURE</span>
-                        <h3>Blog de Café - Diseño & Estructura</h3>
-                        <p><strong>El objetivo:</strong> Crear una plataforma de contenidos con arquitectura escalable. <br>
-                        <strong>La solución:</strong> Maquetación avanzada utilizando HTML5 y CSS3 puro para garantizar velocidad de carga y adaptabilidad total.</p>
-                        <div class="tech-tags">
-                            <span>HTML5</span> <span>CSS3</span> <span>Responsive</span> <span>BEM</span>
-                        </div>
-                        <a href="https://github.com/josemanuelweb/blogdecafe" class="btn btn-primary">Ver Repositorio GitHub</a>
+            <div class="project-card-row">
+                <div class="project-content">
+                    <span class="tag tag-web">WEB CORPORATIVA</span>
+                    <h3>Web Estética</h3>
+                    <p>Landing para servicios de estética orientada a presentar tratamientos, generar confianza y facilitar el contacto.</p>
+                    <div class="tech-tags">
+                        <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>Responsive</span>
                     </div>
-                    <div class="project-image-container">
-                        <img src="img/proyecto-1.png" alt="Blog de Cafe">
-                    </div>
+                    <a href="https://web-estetica.onrender.com/" class="btn btn-primary" target="_blank" rel="noopener">Ver sitio web</a>
                 </div>
+                <div class="project-image-container">
+                    <img src="img/esteti.png" alt="web-estetica">
+                </div>
+            </div>
+
+            <div class="project-card-row">
+                <div class="project-content">
+                    <span class="tag tag-web">SERVICIOS TÉCNICOS</span>
+                    <h3>Las mil reparaciones</h3>
+                    <p>Sitio para servicios técnicos con foco en captación de clientes, claridad de servicios y contacto directo.</p>
+                    <div class="tech-tags">
+                        <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>PHP</span>
+                    </div>
+                    <a href="https://lasmilreparaciones.netlify.app/" class="btn btn-primary" target="_blank" rel="noopener">Ver sitio web</a>
+                </div>
+                <div class="project-image-container">
+                    <img src="img/lasmil.png" alt="Las Mil Reparaciones">
+                </div>
+            </div>
+
+            <div class="project-card-row">
+              <div class="project-content">
+                  <span class="tag tag-web">FRONTEND ARCHITECTURE</span>
+                  <h3>Blog de Café - Diseño & Estructura</h3>
+                  <p>Sitio de contenidos con enfoque en maquetación limpia, buena experiencia de lectura y diseño responsive.</p>
+                  <div class="tech-tags">
+                      <span>HTML5</span> <span>CSS3</span> <span>Responsive</span> <span>BEM</span>
+                  </div>
+                  <a href="https://josemanuelweb.github.io/blogdecafe/" class="btn btn-primary" target="_blank" rel="noopener">Ver sitio web</a>
+              </div>
+              <div class="project-image-container">
+                  <img src="img/proyecto-1.png" alt="Blog de Cafe">
+              </div>
+            </div>
 
             </div>
         </section>

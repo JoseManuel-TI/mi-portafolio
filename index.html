@@ -16,8 +16,13 @@
                 <h1><span class="highlight">Jose Manuel</span> Portafolio</h1>
             </div>
             <nav class="navigation"> 
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Abrir menú" aria-controls="site-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="site-menu">
+                    <li class="current"><a href="index.html">Inicio</a></li>
                     <li><a href="sobremi.html">Sobre Mí</a></li>
                     <li><a href="proyectos.html">Proyectos</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
@@ -29,31 +34,34 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Estratega en Ciencia de Datos e IA</h1>
-                <p class="subtitle">Transformando datos en soluciones de negocio con Python e IA.</p>
-                <p class="hero-text">Con 20 años de experiencia, desarrollo herramientas que optimizan procesos reales.</p>
-                <div class="cta-group">
-                    <a href="https://github.com/josemanuelweb" class="btn btn-primary">Ver Proyectos</a>
-                    <a href="contacto.html" class="btn btn-secondary">Hablemos</a>
+                <!-- <p class="eyebrow">Portfolio profesional</p> -->
+                <h1>José Manuel Castro Reina</h1>
+                <p class="subtitle">Soporte IT | Python &amp; Flask | Desarrollo Web</p>
+                <p class="study-line">Estudiando Ciencia de Datos e Inteligencia Artificial (IFTS12)</p>
+                <p class="hero-copy">Desarrollo soluciones web y automatizaciones que ahorran tiempo, ordenan procesos y generan resultados reales.</p>
+                <div class="hero-actions">
+                    <a href="cv.pdf" class="btn btn-primary" download>Descargar CV</a>
+                    <a href="https://github.com/josemanuelweb" class="btn btn-secondary" target="_blank" rel="noopener">Ver GitHub</a>
+                    <a href="https://www.linkedin.com/in/josemanuell/" class="btn btn-secondary" target="_blank" rel="noopener">Ver LinkedIn</a>
                 </div>
             </div>
         </section>
 
-        <section id="proyectos" class="container">
-            <h2 class="section-title">Solución Destacada</h2>
+        <section id="proyectos" class="container highlight-project">
+            <h2 class="section-title">Proyecto Destacado</h2>
             <div class="project-card">
-                <div class="project-content">
-                    <h3>Real Estate Data Hunter</h3>
-                    <p>Sistema inteligente que automatiza la búsqueda de alquileres. <strong>Ahorro del 80% de tiempo</strong> en prospección inmobiliaria.</p>
+                <img class="project-demo" src="img/AppInmobiliaria.png" alt="Bot Inmobiliario Pro">
+                <div class="project-highlight-content">
+                    <h3>Bot Inmobiliario Pro</h3>
+                    <p>Automatiza la búsqueda y filtrado de oportunidades inmobiliarias para acelerar la toma de decisiones.</p>
                     <div class="tech-tags">
                         <span>Python</span>
-                        <span>IA</span>
+                        <span>Flask</span>
                         <span>Web Scraping</span>
-                        <span>JS</span>
+                        <span>SQL</span>
                     </div>
-                    <a href="https://github.com/josemanuelweb/bot-inmobiliario-pro" class="project-link">Ver en GitHub →</a>
+                    <a href="proyectos.html" class="btn btn-primary">Ver proyectos</a>
                 </div>
-                <img class="project-demo" src="img/AppInmobiliaria.png" alt="AppInmobiliaria">
             </div>
         </section>
     </main>

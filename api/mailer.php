@@ -12,6 +12,16 @@ function smtp_enabled(): bool
 
 function smtp_send_plain_text(string $toEmail, string $toName, string $subject, string $body): bool
 {
+    return smtp_send_message($toEmail, $toName, $subject, $body, null);
+}
+
+function smtp_send_html(string $toEmail, string $toName, string $subject, string $plainBody, string $htmlBody): bool
+{
+    return smtp_send_message($toEmail, $toName, $subject, $plainBody, $htmlBody);
+}
+
+function smtp_send_message(string $toEmail, string $toName, string $subject, string $plainBody, ?string $htmlBody): bool
+{
     if (!smtp_enabled()) {
         return false;
     }
@@ -109,14 +119,15 @@ function smtp_send_plain_text(string $toEmail, string $toName, string $subject, 
         return false;
     }
 
-    $message = build_plain_text_message(
+    $message = build_email_message(
         $fromEmail,
         $fromName,
         $toEmail,
         $toName,
         $replyTo,
         $subject,
-        $body
+        $plainBody,
+        $htmlBody
     );
 
     $data = preg_replace('/(?m)^\./', '..', $message) . "\r\n.\r\n";
@@ -132,14 +143,15 @@ function smtp_send_plain_text(string $toEmail, string $toName, string $subject, 
     return true;
 }
 
-function build_plain_text_message(
+function build_email_message(
     string $fromEmail,
     string $fromName,
     string $toEmail,
     string $toName,
     string $replyTo,
     string $subject,
-    string $body
+    string $plainBody,
+    ?string $htmlBody
 ): string {
     $safeFromName = sanitize_header_value($fromName);
     $safeToName = sanitize_header_value($toName);
@@ -153,15 +165,42 @@ function build_plain_text_message(
     $headers[] = "To: {$safeToName} <{$safeToEmail}>";
     $headers[] = "Reply-To: {$safeReplyTo}";
     $headers[] = "Subject: {$safeSubject}";
-    $headers[] = "MIME-Version: 1.0";
-    $headers[] = "Content-Type: text/plain; charset=UTF-8";
-    $headers[] = "Content-Transfer-Encoding: 8bit";
-    $headers[] = "Date: " . date('r');
+    $headers[] = 'MIME-Version: 1.0';
+    $headers[] = 'Date: ' . date('r');
 
-    $normalizedBody = str_replace(["\r\n", "\r"], "\n", $body);
-    $normalizedBody = str_replace("\n", "\r\n", $normalizedBody);
+    $plain = normalize_line_breaks($plainBody);
 
-    return implode("\r\n", $headers) . "\r\n\r\n" . $normalizedBody;
+    if ($htmlBody === null || trim($htmlBody) === '') {
+        $headers[] = 'Content-Type: text/plain; charset=UTF-8';
+        $headers[] = 'Content-Transfer-Encoding: 8bit';
+        return implode("\r\n", $headers) . "\r\n\r\n" . $plain;
+    }
+
+    $boundary = 'b1_' . md5((string) microtime(true) . random_int(1000, 9999));
+    $html = normalize_line_breaks($htmlBody);
+
+    $headers[] = 'Content-Type: multipart/alternative; boundary="' . $boundary . '"';
+
+    $body = [];
+    $body[] = '--' . $boundary;
+    $body[] = 'Content-Type: text/plain; charset=UTF-8';
+    $body[] = 'Content-Transfer-Encoding: 8bit';
+    $body[] = '';
+    $body[] = $plain;
+    $body[] = '--' . $boundary;
+    $body[] = 'Content-Type: text/html; charset=UTF-8';
+    $body[] = 'Content-Transfer-Encoding: 8bit';
+    $body[] = '';
+    $body[] = $html;
+    $body[] = '--' . $boundary . '--';
+
+    return implode("\r\n", $headers) . "\r\n\r\n" . implode("\r\n", $body);
+}
+
+function normalize_line_breaks(string $text): string
+{
+    $normalized = str_replace(["\r\n", "\r"], "\n", $text);
+    return str_replace("\n", "\r\n", $normalized);
 }
 
 function sanitize_header_value(string $value): string

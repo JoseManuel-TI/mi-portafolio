@@ -15,51 +15,63 @@
             <div id="branding">
                 <h1><span class="highlight">Jose Manuel</span> Portafolio</h1>
             </div>
-            <nav class="navigation"> 
-                <ul>
+            <nav class="navigation">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Abrir menú" aria-controls="site-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="site-menu">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="sobremi.html">Sobre Mí</a></li>
+                    <li class="current"><a href="sobremi.html">Sobre Mí</a></li>
                     <li><a href="proyectos.html">Proyectos</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <section class="container about-me-section">
-        <h2 class="section-title">Sobre Mí: El Puente entre el Negocio y la IA</h2>
-        
-        <div class="about-grid">
-            <div class="about-text">
-                <p class="highlight-p">
-                    Soy un profesional con más de 20 años de trayectoria en gestión y resolución de problemas críticos, actualmente evolucionando en el campo de la <strong>Ciencia de Datos y la Inteligencia Artificial</strong>.
-                </p>
-                
-                <p>
-                    Mi enfoque es único: no veo solo filas de datos o líneas de código; veo oportunidades para optimizar la rentabilidad y el tiempo de las empresas. Mi formación académica en el <strong>IFTS#12</strong>, sumada a mi dominio de herramientas como Python y SQL, me permite construir soluciones que otros pasan por alto.
-                </p>
 
-                <div class="values-grid">
-                    <div class="value-item">
-                        <h4>Seniority & Criterio</h4>
-                        <p>Dos décadas de experiencia laboral me dan la templanza y el juicio necesarios para manejar datos sensibles y tomar decisiones éticas.</p>
-                    </div>
-                    <div class="value-item">
-                        <h4>Innovación Aplicada</h4>
-                        <p>No desarrollo tecnología por amor al arte, sino para solucionar dolores reales, como mi sistema de prospección inmobiliaria automatizada.</p>
+    <main>
+        <section class="container about-me-section">
+            <!-- <p class="eyebrow">Sobre mí</p> -->
+            <h2 class="section-title">El puente entre negocio, soporte técnico y desarrollo</h2>
+
+            <p class="about-lead">
+                Soy José Manuel Castro Reina, profesional con más de 20 años de experiencia en gestión y resolución de problemas críticos.
+                Hoy aplico esa base al desarrollo web y la automatización con Python para construir soluciones útiles, estables y enfocadas en resultados.
+            </p>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="values-grid">
+                        <article class="value-item">
+                            <h4>Seniority y criterio</h4>
+                            <p>Experiencia para priorizar bien, actuar con calma y tomar decisiones técnicas con impacto real.</p>
+                        </article>
+                        <article class="value-item">
+                            <h4>Innovación aplicada</h4>
+                            <p>Desarrollo herramientas concretas para ahorrar tiempo, ordenar procesos y mejorar la productividad.</p>
+                        </article>
+                        <article class="value-item">
+                            <h4>Aprendizaje continuo</h4>
+                            <p>Actualmente estudiando Ciencia de Datos e Inteligencia Artificial en IFTS12.</p>
+                        </article>
                     </div>
                 </div>
+
+                <aside class="about-stack">
+                    <h3>Stack técnico</h3>
+                    <ul class="tech-list">
+                        <li><strong>Data & IA:</strong> Python, Ciencia de Datos, Automatización.</li>
+                        <li><strong>Web Dev:</strong> HTML5, CSS3, JavaScript, PHP.</li>
+                        <li><strong>Framework:</strong> Flask.</li>
+                        <li><strong>Base de datos:</strong> SQL / MySQL.</li>
+                        <li><strong>Entornos:</strong> Windows, Mac (M1), Git/GitHub.</li>
+                    </ul>
+                </aside>
             </div>
-            
-            <div class="about-stack">
-                <h3>Mi Stack Tecnológico</h3>
-                <ul class="tech-list">
-                    <li><strong>Data & IA:</strong> Python, Ciencia de Datos, Automatización.</li>
-                    <li><strong>Web Dev:</strong> HTML5, CSS3, SASS, JavaScript, PHP.</li>
-                    <li><strong>Entornos:</strong> Windows & Mac (M1), Git/GitHub.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">

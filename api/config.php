@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+load_dotenv_file(__DIR__ . '/../.env');
+
 function env_or_default(string $key, string $default): string
 {
     $value = getenv($key);
@@ -18,6 +20,52 @@ function env_or_default(string $key, string $default): string
     }
 
     return $value;
+}
+
+function load_dotenv_file(string $path): void
+{
+    static $loaded = false;
+    if ($loaded || !is_file($path) || !is_readable($path)) {
+        $loaded = true;
+        return;
+    }
+
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if (!is_array($lines)) {
+        $loaded = true;
+        return;
+    }
+
+    foreach ($lines as $line) {
+        $trimmed = trim($line);
+        if ($trimmed === '' || str_starts_with($trimmed, '#')) {
+            continue;
+        }
+
+        $parts = explode('=', $trimmed, 2);
+        if (count($parts) !== 2) {
+            continue;
+        }
+
+        $key = trim($parts[0]);
+        $value = trim($parts[1]);
+        if ($key === '') {
+            continue;
+        }
+
+        if (
+            (str_starts_with($value, '"') && str_ends_with($value, '"')) ||
+            (str_starts_with($value, "'") && str_ends_with($value, "'"))
+        ) {
+            $value = substr($value, 1, -1);
+        }
+
+        putenv($key . '=' . $value);
+        $_ENV[$key] = $value;
+        $_SERVER[$key] = $value;
+    }
+
+    $loaded = true;
 }
 
 function local_config(): array
