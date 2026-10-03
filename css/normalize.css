@@ -1,0 +1,83 @@
+:root {
+    --primary: #0056b3;
+    --secondary: #007bff;
+    --dark: #2c3e50;
+    --light: #f4f4f4;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--light);
+    color: #333;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.main-header {
+    background: var(--dark);
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img { height: 50px; }
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 80px 0;
+    background: white;
+}
+
+.hero h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+.subtitle { font-size: 1.2rem; font-weight: 600; color: var(--secondary); }
+.hero-text { max-width: 700px; margin: 20px auto; }
+
+/* Botones */
+.cta-group { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+.btn { padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-secondary { border: 2px solid var(--primary); color: var(--primary); }
+
+/* Card de Proyecto */
+.section-title { text-align: center; margin-top: 50px; }
+.project-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 6px solid var(--secondary);
+}
+
+.tech-tags { display: flex; gap: 10px; margin: 15px 0; }
+.tech-tags span {
+    background: #e1ecf4;
+    color: #39739d;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+}
