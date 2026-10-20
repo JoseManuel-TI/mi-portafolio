@@ -1,60 +1,22 @@
 # mi-portafolio
 
-Portafolio personal con formulario de contacto guardado en MySQL (sin Formspree).
+Sitio estático de portafolio y CV de José Manuel Castro Reina, publicado con GitHub Pages.
 
-## Configuracion rapida (MAMP)
+## Estructura
 
-1. Crear base y tabla:
-   - Importa `database/schema.sql` en phpMyAdmin o ejecutalo en MySQL.
-2. Ajustar credenciales si hace falta:
-   - `api/config.php` usa por defecto `127.0.0.1:8889`, DB `mi_portafolio`, usuario `root`, password `root`.
-   - Puedes sobreescribir con variables de entorno: `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASS`.
-3. Abrir `contacto.html` y enviar un mensaje.
+- `index.html`: inicio, perfil y llamado a la acción.
+- `sobremi.html`: experiencia, conocimientos y formación.
+- `proyectos.html`: proyectos de aprendizaje.
+- `contacto.html`: contacto directo por WhatsApp, email y LinkedIn.
+- `JoseManuel-CV.pdf`: CV actualizado.
+- `css/`, `js/`, `img/`: estilos, navegación y recursos.
 
-## Endpoint
+## Contacto
 
-- `POST /api/contact.php`
-- Campos esperados: `name`, `email`, `message`
-- Auto-reply: envia email de confirmacion al usuario si `AUTO_REPLY_ENABLED=1`
+Este sitio no usa backend. El contacto se realiza por WhatsApp, email o LinkedIn para evitar exponer credenciales y mantener el sitio 100% estático.
 
-## Ver mensajes guardados
+## Seguridad
 
-```sql
-SELECT id, name, email, message, created_at
-FROM contact_messages
-ORDER BY id DESC;
-```
-
-## Panel admin
-
-- URL: `http://localhost:8888/mi-portafolio/admin/mensajes.php`
-- Requiere variables de entorno (obligatorias):
-  - `ADMIN_USER`
-  - `ADMIN_PASS_HASH`
-- Generar hash de password:
-  - `php -r "echo password_hash('tu_password_segura', PASSWORD_DEFAULT), PHP_EOL;"`
-- Alternativa recomendada (VS Code, sin tocar Apache):
-  - Copia `config/local.php.example` como `config/local.php`
-  - Completa:
-    - `ADMIN_USER` con tu usuario
-    - `ADMIN_PASS_HASH` con el hash generado
-
-## Auto reply email
-
-- Configuracion en `config/local.php`:
-  - `AUTO_REPLY_ENABLED` (`1` o `0`)
-  - `SITE_NAME`
-  - `MAIL_FROM`
-  - `MAIL_REPLY_TO`
-  - `AUTO_REPLY_SUBJECT`
-  - `SMTP_ENABLED` (`1` o `0`)
-  - `SMTP_HOST`
-  - `SMTP_PORT`
-  - `SMTP_USER`
-  - `SMTP_PASS`
-  - `SMTP_ENCRYPTION` (`tls`, `ssl` o `none`)
-  - `SMTP_TIMEOUT`
-- Para activar envio real:
-  1. Completa credenciales SMTP reales en `config/local.php`.
-  2. Pon `SMTP_ENABLED` en `1`.
-  3. Mantén `AUTO_REPLY_ENABLED` en `1`.
+- No subir `config/local.php`, `.env` ni credenciales al repositorio.
+- Si en algún momento se usó un panel de administración o SMTP, rotar la contraseña y los tokens.
+- El historial de Git puede conservar archivos eliminados: si se filtró una credencial, hay que revocarla, no alcanza con borrar el archivo.
